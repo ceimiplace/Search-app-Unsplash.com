@@ -7,9 +7,9 @@ class App extends React.Component {
   whenUserSubmitsForm = async (term) => {
     console.log(term);
     const response = await axios.get(
-      "https://api.unsplash.com/search/photos/dogs",
+      "https://api.unsplash.com/search/photos/",
       {
-        params: { query: term },
+        params: { query: "dogs" },
         headers: {
           Authorization:
             "Client-ID TYMtIDr5pbkUTBDnWOfebqltBPGuNdvPoUVcZSvCqJA",
