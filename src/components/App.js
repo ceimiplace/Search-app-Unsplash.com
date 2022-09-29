@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import SearchBar from "./SearchBar";
 import ItemsList from "./ItemList";
 function App() {
   const [images, setImages] = useState([]);
-  const [term, setTerm] = useState("dogs");
+  const [term, setTerm] = useState("cat");
 
   useEffect(() => {
-    fetch(`https://api.unsplash.com/search/photos/${term}`, {
+    fetch(`https://api.unsplash.com/search/photos/?query=${term}`, {
       method: "GET",
       headers: {
         Authorization: "Client-ID TYMtIDr5pbkUTBDnWOfebqltBPGuNdvPoUVcZSvCqJA",
@@ -17,8 +16,9 @@ function App() {
       .then((data) => setImages(data.results));
   }, [term]);
 
-  function whenUserSubmitsForm(term) {
-    setTerm(term);
+  function whenUserSubmitsForm(innerterm) {
+    console.log(innerterm);
+    setTerm(innerterm);
   }
   // whenUserSubmitsForm = async (term) => {
   //   console.log(term);
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App w-4/6 flex  flex-col  p-3  mx-auto">
-      <SearchBar submited={whenUserSubmitsForm} />
+      <SearchBar submited={whenUserSubmitsForm} currentValue={term} />
       <ItemsList images={images} />
     </div>
   );
