@@ -1,6 +1,6 @@
 import React from "react";
 class SearchBar extends React.Component {
-  state = { term: "cars" };
+  state = { term: "dogs" };
   onSubmit = (e) => {
     e.preventDefault();
     this.props.submited(this.state.term);
