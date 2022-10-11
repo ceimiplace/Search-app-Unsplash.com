@@ -7,7 +7,6 @@ export default function UnsplashAPI({ changenavi }) {
   const [term, setTerm] = useState("cats");
   const [page, setPage] = useState(1);
   useEffect(() => {
-    console.log(term);
     fetch(`https://api.unsplash.com/search/photos?query=${term}&page=${page}`, {
       method: "GET",
       headers: {
@@ -17,11 +16,10 @@ export default function UnsplashAPI({ changenavi }) {
     })
       .then((resp) => resp.json())
       .then((dates) => {
-        console.log(dates);
         setImages(dates.results);
       });
   }, [term, page]);
-  console.log(page);
+
   useEffect(() => {
     console.log(term);
     fetch(`https://api.unsplash.com/search/photos?query=${term}`, {
