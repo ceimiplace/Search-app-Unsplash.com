@@ -8,15 +8,15 @@ export default function SearchBar({ submited }) {
   };
 
   return (
-    <div className="searchBar">
+    <div className="searchBar ">
       <form
         onSubmit={onSubmitHandler}
-        className=" border-black-700  shadow p-3"
+        className=" border-black-700  shadow p-3 flex justify-center flex-col"
       >
         <label className="font-bold block mb-4">Image search</label>
         <input
           type="text"
-          className="block w-full border-slate-300 border-2 rounded"
+          className="block w-full border-slate-300 border-2 rounded w-4/5 max-w-lg"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />
